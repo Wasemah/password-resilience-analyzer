@@ -1,4 +1,22 @@
-# Sample hashes for testing
+# Sample Hashes for Testing
+# Use these to test the hash cracking functionality
+
+# MD5 Hashes
 MD5: 5f4dcc3b5aa765d61d8327deb882cf99 (password)
+MD5: e10adc3949ba59abbe56e057f20f883e (123456)
+MD5: 25d55ad283aa400af464c76d713c07ad (12345678)
+MD5: d8578edf8458ce06fbc5bb76a58c5ca4 (qwerty)
+
+# SHA1 Hashes
 SHA1: 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8 (password)
+SHA1: 7c4a8d09ca3762af61e59520943dc26494f8941b (123456)
+SHA1: 20eabe5d64b0e216796e834f52d61fd0b70332fc (12345678)
+
+# SHA256 Hashes
 SHA256: 5e884898da28047151d0e56f8dc6292773603d0d6aabbddad4b8a2d9a7c4a8d5 (password)
+SHA256: 8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92 (123456)
+SHA256: ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f (12345678)
+
+# Test these with the cracker:
+# python hash_cracker.py 5f4dcc3b5aa765d61d8327deb882cf99 --type md5
+# python hash_cracker.py 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8 --type sha1

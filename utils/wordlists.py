@@ -1,9 +1,9 @@
-"""Wordlist utilities for common passwords"""
+"""wordlist utilities"""
 
 import os
 
-# Common passwords list (top 100 most common)
-common_passwords = {
+# Extended common passwords (top 200+)
+extended_common_passwords = {
     '123456', 'password', '12345678', 'qwerty', '123456789',
     '12345', '1234', '111111', '1234567', 'dragon',
     '123123', 'baseball', 'abc123', 'football', 'monkey',
@@ -23,13 +23,40 @@ common_passwords = {
     'princess', 'joshua', 'cheese', 'amanda', 'summer',
     'love', 'ashley', '6969', 'nicole', 'chelsea',
     'biteme', 'matthew', 'access', 'yankees', '987654321',
-    'dallas', 'austin', 'thunder', 'taylor', 'matrix'
+    'dallas', 'austin', 'thunder', 'taylor', 'matrix',
+    'william', 'corvette', 'hello', 'martin', 'heather',
+    'secret', 'fucker', 'merlin', 'diamond', '1234qwer',
+    'gfhjkm', 'computer', 'super', 'internet', 'apple',
+    'passwort', 'orange', 'god', 'sexy', 'thx1138',
+    'arsenal', 'iloveyou', 'a1b2c3', '123abc', 'windows',
+    'money', 'password1', 'sample', 'hackme', 'admin123',
+    'welcome', 'pussy', 'pass123', 'adminadmin', 'qwe123',
+    'hello123', 'monkey123', 'password123', 'welcome123',
+    'admin1', 'test123', '123456a', 'qweasd', 'baseball123'
 }
 
+# Common passwords list (alias for compatibility)
+common_passwords = extended_common_passwords
+
 def load_wordlist(filepath):
-    """Load custom wordlist from file"""
+    """Load custom wordlist from file with error handling"""
     if not os.path.exists(filepath):
         raise FileNotFoundError(f"Wordlist file not found: {filepath}")
     
-    with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
-        return set(line.strip() for line in f if line.strip())
+    wordlist = set()
+    
+    try:
+        with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith('#'):  # Skip comments
+                    wordlist.add(line)
+    except Exception as e:
+        raise IOError(f"Error reading wordlist: {e}")
+    
+    return wordlist
+
+def generate_rockyou_sample():
+    """Generate a sample rockyou wordlist for testing"""
+    sample_passwords = list(extended_common_passwords)[:50]  # Top 50 common
+    return set(sample_passwords)

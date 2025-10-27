@@ -1,0 +1,4 @@
+# Sample hashes for testing
+MD5: 5f4dcc3b5aa765d61d8327deb882cf99 (password)
+SHA1: 5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8 (password)
+SHA256: 5e884898da28047151d0e56f8dc6292773603d0d6aabbddad4b8a2d9a7c4a8d5 (password)

@@ -23,12 +23,15 @@ from hash_cracker import benchmark_cracking_speed
 # Initialize colorama for cross-platform colored output
 init(autoreset=True)
 
+PasswordAuditor = AdvancedPasswordAuditor
+
 class AdvancedPasswordAuditor:
     def __init__(self):
         self.common_passwords = extended_common_passwords
         self.cracker = HashCracker()
         self.audit_history = []
-        
+    
+    
     def calculate_entropy(self, password):
         """Calculate password entropy in bits with advanced analysis"""
         if not password:

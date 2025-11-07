@@ -23,8 +23,6 @@ from hash_cracker import benchmark_cracking_speed
 # Initialize colorama for cross-platform colored output
 init(autoreset=True)
 
-PasswordAuditor = AdvancedPasswordAuditor
-
 class AdvancedPasswordAuditor:
     def __init__(self):
         self.common_passwords = extended_common_passwords
@@ -283,6 +281,9 @@ class AdvancedPasswordAuditor:
             json.dump(report, f, indent=2)
         
         print(f"\n{Fore.GREEN}✅ Audit report saved: {filename}")
+
+# Create an alias for backward compatibility if needed
+PasswordAuditor = AdvancedPasswordAuditor
 
 def main():
     parser = argparse.ArgumentParser(description='Advanced Password Security Auditor')

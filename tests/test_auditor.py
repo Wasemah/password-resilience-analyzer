@@ -19,7 +19,7 @@ class TestPasswordAuditor(unittest.TestCase):
         self.assertGreater(adjusted_entropy, 50)
         
         # Test weak password
-        adjusted_entropy_weak, _, _ = self.auditor.calculate_entropy("123")
+        adjusted_entropy_weak, raw_entropy_weak, char_categories_weak = self.auditor.calculate_entropy("123")
         self.assertLess(adjusted_entropy_weak, 10)
     
     def test_common_password(self):
